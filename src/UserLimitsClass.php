@@ -42,6 +42,16 @@ class UserLimitsClass
         $this->usage->reset();
     }
 
+    public function next_refresh_at()
+    {
+        return $this->usage->next_refresh_at();
+    }
+
+    public function refreshed_at()
+    {
+        return $this->usage->refreshed_at();
+    }
+
     public function decrement( $number = 1 )
     {
         $this->usage->decrement( 'used', $number );

@@ -46,8 +46,8 @@ echo auth()->user()->usage('cards')->reset();
 echo auth()->user()->usage('cards')->increment();
 echo auth()->user()->usage('domains')->decrement();
 
-echo auth()->user()->usage('cards')->refreshed_at;
-echo auth()->user()->usage('cards')->next_refresh_at;
+echo auth()->user()->usage('cards')->refreshed_at();
+echo auth()->user()->usage('cards')->next_refresh_at();
 
 ```
 
