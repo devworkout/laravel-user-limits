@@ -11,5 +11,10 @@ trait HasLimits
         return new UserLimitsClass( $this, $subject, $package );
     }
 
+    public function resolvePackage()
+    {
+        return null;
+    }
+
 
 }

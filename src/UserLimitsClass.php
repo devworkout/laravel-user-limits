@@ -30,7 +30,7 @@ class UserLimitsClass
         $this->user = $user;
         $this->subject = $subject;
 
-        $this->limit = Limit::where( 'subject', $subject )->where( 'package', $package )->first();
+        $this->limit = Limit::where( 'subject', $subject )->where( 'package', $user->resolvePackage() )->first();
         $this->usage = $this->limit->usages()->firstOrCreate( [
             'user_id' => $this->user->id,
         ] );
