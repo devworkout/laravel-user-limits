@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Limit extends Model
 {
+    use Macroable;
+
     protected $guarded = [];
 
     public function usages()

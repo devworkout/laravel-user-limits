@@ -3,9 +3,12 @@
 namespace DevWorkout\UserLimits\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Traits\Macroable;
 
 class Usage extends Model
 {
+    use Macroable;
+
     protected $guarded = [];
     protected $table = 'limit_usage';
     protected $dates = [
@@ -26,7 +29,10 @@ class Usage extends Model
 
     public function scopeToBeRefreshed( $q )
     {
-        return $q->where( 'period', 'monthly' )->where( 'refreshed_at', '<', now()->subMonth() );
+        return $q->whereHas( 'limit', function ( $q )
+        {
+            return $q->where( 'period', 'monthly' );
+        } )->where( 'refreshed_at', '<', now()->subMonth() );
     }
 
     public function limit()
