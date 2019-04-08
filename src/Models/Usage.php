@@ -3,11 +3,9 @@
 namespace DevWorkout\UserLimits\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Traits\Macroable;
 
 class Usage extends Model
 {
-    use Macroable;
 
     protected $guarded = [];
     protected $table = 'limit_usage';
