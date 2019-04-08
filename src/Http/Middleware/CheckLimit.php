@@ -15,14 +15,14 @@ class CheckLimit
      * @param $subject
      * @return mixed
      */
-    public function handle( $request, Closure $next, $subject )
+    public function handle( $request, Closure $next, $subject, $package = null )
     {
         if ( !auth()->user() )
         {
             return $next( $request );
         }
 
-        if ( auth()->user()->usage( $subject )->exceeded() )
+        if ( auth()->user()->usage( $subject, $package )->exceeded() )
         {
             return abort( 403, ucfirst( $subject ) . ' limit reached' );
         }
