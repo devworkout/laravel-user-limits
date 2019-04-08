@@ -12,6 +12,7 @@ class Usage extends Model
         'created_at',
         'updated_at',
         'refreshed_at',
+        'next_refresh_at',
     ];
 
     protected $appends = [
