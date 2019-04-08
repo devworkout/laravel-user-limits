@@ -18,7 +18,7 @@ class CreateLimitsTable extends Migration
             $table->bigIncrements( 'id' );
             $table->string( 'subject', 512 );
             $table->string( 'package' )->nullable();
-            $table->unsignedInteger( 'allowed' );
+            $table->integer( 'allowed' );
             $table->enum( 'period', [ 'monthly', 'permanent' ] )->default( 'permanent' );
             $table->timestamps();
         } );

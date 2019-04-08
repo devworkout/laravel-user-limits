@@ -69,6 +69,10 @@ class UserLimitsClass
 
     public function allowed()
     {
+        if ( $this->limit->allowed == -1 )
+        {
+            return INF;
+        }
         return $this->limit->allowed;
     }
 
