@@ -22,6 +22,7 @@ class Usage extends Model
 
     public function getNextRefreshAtAttribute()
     {
+        $this->refreshed_at = $this->refreshed_at ?: now();
         return $this->refreshed_at->addMonth();
     }
 
